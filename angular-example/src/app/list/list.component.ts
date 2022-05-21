@@ -4,21 +4,17 @@ import { HttpService } from '../http.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
-
 export class ListComponent implements OnInit {
+  brews: any = [];
 
-  brews: any = []
-
-  constructor(private _http: HttpService) { }
+  constructor(private _http: HttpService) {}
 
   ngOnInit() {
-    this._http.getBeer().subscribe(data => {
-      this.brews = data
+    this._http.getBeer().subscribe((data) => {
+      this.brews = data;
       console.log(this.brews);
-    }
-  );
+    });
   }
-
 }
